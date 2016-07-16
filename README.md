@@ -1,4 +1,4 @@
-Ruby Node.js container
+Node.js container
 ====================
 
 > In this Dockerfile by using the ndenv you have installed the Node.js
