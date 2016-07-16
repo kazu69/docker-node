@@ -1,0 +1,13 @@
+language: python
+python:
+  - 2.7
+
+services:
+  - docker
+
+install:
+  - docker build -t node .
+  - docker run --name node node echo 'Hello'
+
+script:
+  - docker ps -a | grep node
