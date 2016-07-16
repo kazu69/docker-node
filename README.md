@@ -1,4 +1,4 @@
-Ruby Node.js container
+Node.js container
 ====================
 
 [![Build Status](https://travis-ci.org/kazu69/docker-node.svg?branch=6.3.0)](https://travis-ci.org/kazu69/docker-node)
