@@ -1,6 +1,8 @@
 Ruby Node.js container
 ====================
 
+[![Build Status](https://travis-ci.org/kazu69/docker-node.svg?branch=6.3.0)](https://travis-ci.org/kazu69/docker-node)
+
 > In this Dockerfile by using the ndenv you have installed the Node.js
 
 Installation
