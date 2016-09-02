@@ -1,5 +1,5 @@
 FROM kazu69/alpine-base
-MAINTAINER kazu69 'kazu.69.web+docker@gmail.com'
+MAINTAINER kazu69
 
 ENV NODE_VERSION v6.3.0
 
