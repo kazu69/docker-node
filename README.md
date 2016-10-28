@@ -9,7 +9,7 @@ Installation
 The easiest way to do this is to get from Docker registry
 
 ```sh
-$ docker pull kazu69/node:VERSION
+$ docker pull kazu69/node:7.0.0
 ```
 
 Also possible to use or from github to get
