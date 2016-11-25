@@ -47,4 +47,10 @@ RUN mkdir -p /tmp && \
     mkdir -p /opt && \
     mv /tmp/dist /opt/yarn
 
+# phantomjs install
+RUN mkdir -p /tmp && \
+    cd /tmp && \
+    curl -L https://github.com/Overbryd/docker-phantomjs-alpine/releases/download/2.11/phantomjs-alpine-x86_64.tar.bz2 | tar xj && \
+    mv /tmp/phantomjs/phantomjs /usr/bin/phantomjs
+
 ENV PATH "$PATH:/opt/yarn/bin"
