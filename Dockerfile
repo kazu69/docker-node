@@ -14,7 +14,12 @@ RUN apk add --update make \
                     binutils-gold \
                     python \
                     openssl-dev \
-                    zlib-dev && \
+                    zlib-dev \
+                    python \
+                    python-dev \
+                    py-pip \
+                    build-base && \
+                    pip install virtualenv && \
                     rm -rf /var/cache/apk/*
 
 RUN mkdir -p /root/src && \
