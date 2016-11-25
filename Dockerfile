@@ -15,11 +15,7 @@ RUN apk add --update make \
                     python \
                     openssl-dev \
                     zlib-dev \
-                    python \
-                    python-dev \
-                    py-pip \
-                    build-base && \
-                    pip install virtualenv && \
+                    fontconfig && \
                     rm -rf /var/cache/apk/*
 
 RUN mkdir -p /root/src && \
@@ -46,5 +42,11 @@ RUN mkdir -p /tmp && \
     tar zvxf latest.tar.gz && \
     mkdir -p /opt && \
     mv /tmp/dist /opt/yarn
+
+# phantomjs install
+RUN mkdir -p /tmp && \
+    cd /tmp && \
+    curl -L https://github.com/Overbryd/docker-phantomjs-alpine/releases/download/2.11/phantomjs-alpine-x86_64.tar.bz2 | tar xj && \
+    ln -s /tmp/phantomjs/phantomjs /usr/bin/phantomjs
 
 ENV PATH "$PATH:/opt/yarn/bin"
