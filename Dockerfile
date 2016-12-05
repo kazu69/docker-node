@@ -13,9 +13,13 @@ RUN apk add --update make \
                     libstdc++ \
                     binutils-gold \
                     python \
+                    python-dev \
+                    py-pip \
+                    build-base \
                     openssl-dev \
                     zlib-dev \
                     fontconfig && \
+                    pip install virtualenv && \
                     rm -rf /var/cache/apk/*
 
 RUN mkdir -p /root/src && \
@@ -32,7 +36,7 @@ RUN cd $(npm root -g)/npm && \
 
 RUN npm i -g npm
 RUN npm cache clean && \
-    apk del make gcc g++ python linux-headers && \
+    apk del make gcc g++ linux-headers && \
     rm -rf /root/src /tmp/* && \
     apk search --update
 
