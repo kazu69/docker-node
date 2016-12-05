@@ -29,6 +29,16 @@ RUN mkdir -p /root/src && \
     ./configure --prefix=/usr --without-snapshot && \
     make install
 
+# install libsass
+RUN git clone https://github.com/sass/sassc && cd sassc && \
+    git clone https://github.com/sass/libsass && \
+    SASS_LIBSASS_PATH=/sassc/libsass make && \
+    mv bin/sassc /usr/bin/sassc && \
+    cd ../ && rm -rf /sassc \
+    apk del git build-base && \
+    apk add libstdc++ && \
+    rm -rf /var/cache/apk/*
+
 # npm@3 install bug for Docker aufs
 RUN cd $(npm root -g)/npm && \
     npm install fs-extra && \
