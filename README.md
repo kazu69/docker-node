@@ -2,6 +2,8 @@ Ruby Node.js container
 ====================
 
 > In this Dockerfile by using the ndenv you have installed the Node.js
+> The following package has already been installed together
+> phantomjs, libsass
 
 Installation
 -----
