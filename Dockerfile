@@ -39,6 +39,18 @@ RUN git clone https://github.com/sass/sassc && cd sassc && \
     apk add libstdc++ && \
     rm -rf /var/cache/apk/*
 
+# created node-sass binary
+ENV SASS_BINARY_PATH=/usr/lib/node_modules/node-sass/build/Release/binding.node'
+RUN git clone --recursive https://github.com/sass/node-sass.git && \
+    cd node-sass && \
+    git submodule update --init --recursive && \
+    npm install && \
+    node scripts/build -f && \
+    cd ../ && rm -rf node-sass
+
+# add binary path of node-sass to .npmrc
+RUN touch $HOME/.npmrc && echo "sass_binary_cache=${SASS_BINARY_PATH}" >> $HOME/.npmrc
+
 # npm@3 install bug for Docker aufs
 RUN cd $(npm root -g)/npm && \
     npm install fs-extra && \
